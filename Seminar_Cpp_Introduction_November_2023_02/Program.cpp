@@ -32,7 +32,7 @@ int main_hello_world()
 
 int main()
 {
-    uhrzeiten();
+    uhrzeiten_02();
 
     return 1;
 }

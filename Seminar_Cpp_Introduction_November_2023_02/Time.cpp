@@ -6,6 +6,53 @@
 #include "Time.h"    // <============== textuelle Ersetzung
 
 
+void Time::setMillisekunden(int msecs)
+{
+    // int m_tmp;
+
+    this->m_msecs = msecs;
+
+    // oder kürzer
+
+    m_msecs = msecs;
+
+    // OO: Paar: an welchem Objekt welche Variable / Methode
+    getHours();
+}
+
+
+
+Time::Time() : m_hours (0), m_minutes(0), m_seconds(0), m_msecs(0) {}
+
+// oder
+
+// constructor chaining - damit erspare ich Wiederholungen
+// Time::Time() : Time (0, 0, 0) {}
+
+// oder
+
+//Time::Time()
+//{
+//    m_hours = 0;
+//    m_minutes = 0;
+//    m_seconds = 0;
+//}
+
+
+// ------------------------------------------------------
+
+Time::Time(int hours, int minutes, int seconds)
+{
+    //m_hours = hours;
+    //m_minutes = seconds;
+    //m_seconds = minutes;
+
+    setHours(hours);
+    setMinutes(minutes);
+    setSeconds(seconds);
+}
+
+
 void Time::setHours(int hours)
 {
     // Plausibilität des Parameters überprüfen muss !!!

@@ -334,11 +334,158 @@ a) ===> .h Dateien (NICHT: cpp-Files  ==> Bibliothek - .lib )
 
 b) Deshalb sollte hier wenig Realisierung enthalten.
 
-
-
 =========================================================
 
 Standard-Werte: !!!!!
 
 ===> Konstruktor.
+
+=========================================================
+
+Debugger:
+
+Programm  (Compiler, Linker, ...)
+
+ZUM TESTEN und ENTWICKELN eines Programms.
+
+Unser (selbst-geschriebenes) Programm können wir mit dem DEBUGGER
+kontrolliert ausführen:
+
+Haltepunkt // Break Point.
+
+=========================================================
+
+2. Paradigma der OO Programmierung:
+
+Member Variablen enthalten zu JEDEM ZEITPUNKT ihres Lebens GÜLTIGE Werte !!!
+
+AUch bereits beim ERZEUGUNGSZEITPUNKT !!!
+
+Es gibt spezielle Methoden für die Vorbelegung der Instanzvariablen
+bei der Objekt-Erzeugung.
+
+"speziell":
+
+a) Name:        Name der Klasse
+b) Rückgabetyp: KEINER  (auch nicht void)
+
+ACHTUNG - AUSNAHME:
+
+Der Konstruktor OHNE Parameter (Default-Konstuktor) 
+wird bei VERWENDUNG OHNE Klammern aufgerufen!
+
+
+// ==========================================================
+
+Time::Time() : m_hours (0), m_minutes(0), m_seconds(0) {}
+
+// versus
+
+Time::Time()
+{
+    m_hours = 0;
+    m_minutes = 0;
+    m_seconds = 0;
+}
+
+IST IDENTISCH !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// ----------------------------------------------------------
+
+ABER:
+
+class TimeZwei
+{
+    std::string m_description;   // NICHT-ELEMENTARE Instanz Variable
+};
+
+// "member wise initialization list"
+
+TimeZwei::TimeZwei() : m_description ("Beschreibung") {}
+
+Notation:
+
+In  
+m_description ("Beschreibung")
+wird ein Konstruktor von std::string mit Parameter "Beschreibung" aufgerufen.
+
+
+// versus
+
+TimeZwei::TimeZwei()
+{
+    m_description = "Beschreibung";
+}
+
+WAHRHEIT:
+
+TimeZwei::TimeZwei() : m_description ()
+{
+    m_description = "Beschreibung";
+}
+
+Hier wird  
+a) m_description ()
+
+   der Standard-Konstruktor aufgerufen
+
+b) Mit 
+
+    m_description = "Beschreibung";
+
+erfolgt anschließend der Aufruf einer Wertzuweisung.
+
+Dies kann ineffizient sein.
+
+
+// ==============================================
+
+Destruktor: Ist für Klassen OHNE DYNAMISCHE DATEN (new) NICHT VON BELANG.
+
+// ==============================================
+
+this : 
+
+Ist ein spezieller Operator
+
+Er zeigt auf alle Member (Instanzvariablen, Methoden) der Klasse
+
+Er kann zum Auflösen von Konflikten (Parametername vs. Instanzvariablenname) 
+   verwendet werden.
+
+Wird in manchen Sprachen stilistisch verwendet (Java).
+
+Nebenbemerkung:
+
+C++:
+
+void Time::setMillisekunden(int msecs)
+{
+    int tmp;
+
+    this->msecs = msecs;
+}
+
+Python:
+
+void Time::setMillisekunden(int msecs)
+{
+    int tmp;
+
+    this->msecs = msecs;
+}
+
+
+class Time:
+ 
+    # default constructor
+    def __init__(self):
+        self.geek = "GeekforGeeks"
+ 
+    # a method
+    def setMillisekunden(self, msecs):
+        self.msecs = msecs
+
+
+// =================================================
 

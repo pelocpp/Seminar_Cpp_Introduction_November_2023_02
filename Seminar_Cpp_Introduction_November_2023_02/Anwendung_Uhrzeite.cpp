@@ -5,7 +5,7 @@
 
 void uhrzeiten()
 {
-    Time jetzt;
+    Time jetzt;   // Funktion namens 'jetzt' ohne Parameter mit Time als Ergebnistyp
 
     // jetzt.m_hours = 11;
 
@@ -27,4 +27,19 @@ void uhrzeiten()
     std::cout << "wievieleMinuten: " << wievieleMinuten << std::endl;
 
     // std::string s("ABC");
+}
+
+void uhrzeiten_02()
+{
+    Time leer;
+
+    // Fluent Programming Style : Named parameters 
+    Time jetzt (14, 33, 10);   // 13, 33, 10 // spezielle Methode
+    jetzt.print();
+
+    //Time wann(15, 30);
+    //wann.print();
+
+    //Time wannAuch (16);
+    //wannAuch.print();
 }
