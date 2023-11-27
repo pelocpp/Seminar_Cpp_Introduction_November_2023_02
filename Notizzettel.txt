@@ -1,0 +1,57 @@
+C++ Einführung
+
+Peter Loos
+
+"Du"
+
+C/C++, Java,  C#,  JavaScipt, Mobile Programming (Android, Java), Back-to-the-Roots
+
+Python (weniger ...)
+
+Guten Morgen.
+
+Agenda 
+
+Pause: 10.30  // 12 bis 13 // 15.00 // 17.00
+
+=======================================================
+
+
+== Was erwarte ich von diesem Kurs?
+
+== In welchen Programmiersprachen habe ich Kenntnisse ???
+
+== Muss ich morgen / übermorgen C++ entwickeln?
+
+== Überblick ?? Vertiefung ??
+
+== Was soll / muss sein drin sein ??
+
+== Github - Kentnisse vorhanden ?
+
+IC Programmierung. // 
+
+for // if // C - Kenntnisse // Unterprogramm: NO.
+
+PHP // JavaScript //
+
+Vererbung
+
+Dynamische Speicherverwaltung // Rule-of-3 // 
+
+Wie fange ich an ?    Hands - On
+
+=======================================================
+
+2 Tools:
+
+Github-Repo:  Unterlagen
+
+Visual Stdio  // Visual Code: Nein.
+
+Visual Stdio: For Free // Community Edition (For Free) // 4 Wochen (priv. Email-Adresse)
+
+=======================================================
+
+cout:  Console Output
+
