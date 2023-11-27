@@ -76,6 +76,8 @@ namespace Rectangle {
         m_y += y;
     }
 
+    // bool: false  / true
+
     bool Rectangle::equals(Rectangle other)
     {
         if (m_x != other.m_x) {
@@ -109,15 +111,22 @@ namespace Rectangle {
 
     bool Rectangle::isSquare()
     {
-        bool result = (m_width == m_height);
-        return result;
+        //bool result = (m_width == m_height);
+        //return result;
+
+        return m_width == m_height;
     }
 
     Point Rectangle::center()
     {
-        double x = m_x + m_width / 2.0;
-        double y = m_y + m_height / 2.0;
-        Point result(x, y);
+        double zwei = 2;
+
+        double x = m_x + m_width / zwei; // CVTSI2SD 
+
+        double y = m_y - m_height / 2;   // KONSTANTE  int  ==> double  :  2.0
+
+        Point result (x, y);
+        
         return result;
     }
 
