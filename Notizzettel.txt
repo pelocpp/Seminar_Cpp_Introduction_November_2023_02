@@ -55,3 +55,290 @@ Visual Stdio: For Free // Community Edition (For Free) // 4 Wochen (priv. Email-
 
 cout:  Console Output
 
+int main()
+
+Unterprogramm: main : Name main ist wichtig // reserviert:
+
+Einsprungpunkt
+
+C/C++:
+
+Programmiersprache: Syntax / Grammatik / Wörterbuch / Lexikon
+
+Überprüfe Grammatik:
+
+Compiler / Übersetzer:
+
+a) Grammatik (Compile)
+
+b) Maschinencode erzeugen (Build)
+
+
+Wo ist mein Programm ???    Endung: .exe (Windows)
+
+
+Ausführung:
+
+Mit dem Visual Studio.
+
+// ===================================================
+
+Was ist eine Klasse ??? Was ist ein Objekt ???
+
+Klasse: Beschreibung  // Fahrzeug
+
+Was wird beschrieben ???
+
+== Daten: Farbe, Höchstgeschwindigkeit, Anzahl gef. Km, 
+
+          Position, Liter im Tank (double)
+
+   Passives:    WERT (double), Farbe (RGB, Zeichenkette)
+
+== Fahren  (Anzahl gef. Km ändern,  Position ändern), Tanken
+
+            Benzinstand ändern
+   
+   Aktives: Unterprogramm (Aktivitäten, ANWEISUNG(EN))
+
+            Methode 
+
+            Häufig: Aufruf eines Unterprogramms führt zu einer Änderung des Wertes
+                    einer Datenvariable.
+
+
+Objekt:
+
+Von einer Beschreibung (Klasse) gibt es reale / konkrete Ausprägungen:
+
+Kfz: VW Polo;
+
+
+Nomenklatur: Objekt
+
+EINFACHER: 
+
+Datentyp  ==> Klasse (Daten UND Methode (Unterprogramm))
+
+Variable  ==> Objekt 
+
+int n;
+
+Beispiel:
+
+Uhrzeit:  Time
+
+Daten:
+
+   == Stunden
+   == Minuten
+   == Sekunden
+
+
+Methoden (Tätigkeiten):
+
+   == Auf der Konsole ausdrucken:  print
+   == Nächste Sekunde (so wie das eine Uhr macht):  increment
+   == Auf den Wert 00:00:00 zurücksetzen: reset
+   == Vergleichen (10.12 // 10.30)
+   == Abstand / Differenz: 
+   .....
+
+
+Umsetzung in C++: 2 Dateien
+
+== Klasse: Beschreibung :  So genannte "Header-Datei" (Endung .h)
+
+== Methoden:  Realisierung: So genannte Implementierungs-Datei (Endung .cpp)
+
+== Anwendung // Hauptprogramm: Ist ebenfalls eine Datei mit der Endung .cpp
+
+
+Nomenklatur:
+------------
+
+Klasse
+
+Objekt:   synonym: Instanz == Objekt
+
+Variablen einer Klasse:
+
+   Instanzvariablen (komisch: Objektvariable) // instance variable
+   member variable
+
+   Unterprogramm / Funktion:  Methode  // method
+
+===================================
+
+Beobachtung:
+
+Header-Dateien lassen sich  nicht übersetzen!
+
+ABER:
+
+Sie werden "indirekt" dann übersetzt, wenn sie inkludiert werden.
+
+===================================
+
+new:
+
+Gehört ganz wo anders hin:   Dynamischen Objekten
+
+Heute:
+
+
+Sprachen: Java, C#:
+
+   Hier werden Objekte AUSSCHLIESSLICH mit dem new Operator erzeugt:
+   Wo:  Heap  // Halde
+
+   Auf dem Stack: NICHT MÖGLICH (Ausnahme: C#, struct)
+
+   Diese Sprachen sind durchaus "einfacher"
+
+
+C++:
+
+===> Objekte:
+
+   == Stack / Stapel:  Durch direkte Vereinbarung (Time jetzt)
+   == Heap  // Halde:  new
+
+C++ ist eine nicht "einfache" Programmiersprache
+
+====================================================
+
+Python / C#: "Alles ist ein Objekt"
+
+C++: NEIN.
+
+2 Varianten:
+
+== Elementare (einfache) Datentypen
+
+   int, double, float, Zeichenkettenkonstante ("ABC"), const char*
+
+== Nicht elementare Datentypen: Klassen / Objekten
+
+   Beispiel: Klasse Time
+
+             Klasse std::string (Bibliothek), std::vector
+
+====================================================
+
+Übersetzungsweg in C/C++:
+
+A) Datei .cpp nach .obj:
+
+   Es wird Maschinencode in einer Datei .obj abgelegt.
+
+   ABER: 
+   
+   Aufrufe von Funktionen // Methoden werden in einer .obj Datei
+
+   nur "beschrieben": 
+
+   i) Methode 'print' an der Klasse Time wird aufgerufen
+
+   ii) Es ist nicht bekannt, in welcher Datei (.obj) der Maschinencode
+       vorhanden ist.
+
+B) Linker: 
+
+   Input:    Viele / alle .obj Dateien eines Programms.
+
+   Er löst u.a. Querbezüge (in Datei A wird 'print' aufgerufen,
+                            in Datei B wird 'print' implemntiert)
+   auf.
+
+   Nebenbemerkung: Sucht die eine Funktion 'main'
+
+
+   Output:   Ein .exe File
+
+   Die Inhalte von .obj (Linux: .o) Dateien sind standardisiert:
+
+   Common Object File Format (COFF)
+
+// ================================================
+
+Unterschiede zur prozeduralen Programmierung:
+
+int  n;
+
+n = 9999;
+
+int stunden;
+
+stunden = 9999;
+
+Jein ..........
+
+Paradigma der OO Programmierung:
+
+Member Variablen enthalten zu JEDEM ZEITPUNKT ihres Lebens GÜLTIGE Werte !!!
+
+
+Der Zugriff auf Member Variablen geht deshalb (im Regelfall) deshalb NICHT.
+
+Lösung:
+
+Geht nur mit Methoden :  Setzen / Lesen Werte von Instanzvariablen.
+
+          getter // setter - Methode
+
+
+Achtung:
+
+Eine Klasse hat zB 10 Instanzvariablen.
+
+VORSICHT: Das bedeutet NICHT, dass die Klasse 10 setter und getter - Methoden hat.
+
+class Auto
+{
+private:
+   double m_liter_im_tank;
+
+public:
+
+    set_Liter_im_tank   ... NIEMALS
+
+ABER:
+
+   void tanken (double liter)   ==> Realierung: m_liter_im_tank = m_liter_im_tank + liter;
+
+   Überprüfung:  Tank ein Maximum.
+
+
+}
+
+
+=========================================================
+
+Neben private und public gibt es auch noch protected:
+
+  Tritt nur bei der VERERBUNG in Erscheinung.
+
+
+=========================================================
+
+Keine Regel ohne Ausnahme:
+
+Es darf auch im Header-File eine Realisierung vorhanden sein:
+
+VORSICHT:
+
+Behutsam: Warum ???
+
+a) ===> .h Dateien (NICHT: cpp-Files  ==> Bibliothek - .lib )
+
+b) Deshalb sollte hier wenig Realisierung enthalten.
+
+
+
+=========================================================
+
+Standard-Werte: !!!!!
+
+===> Konstruktor.
+
