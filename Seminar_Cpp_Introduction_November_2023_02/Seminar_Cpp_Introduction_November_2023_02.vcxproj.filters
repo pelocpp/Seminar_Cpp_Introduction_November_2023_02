@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Rectangles">
+      <UniqueIdentifier>{068f7205-4396-4823-8c81-281939eb7e67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
@@ -24,6 +27,15 @@
     <ClCompile Include="Anwendung_Uhrzeite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Rectangle\Point.cpp">
+      <Filter>Rectangles</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle\Rectangle.cpp">
+      <Filter>Rectangles</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle\Rectangle_Main.cpp">
+      <Filter>Rectangles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -31,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="MyFunctions.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle\Point.h">
+      <Filter>Rectangles</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle\Rectangle.h">
+      <Filter>Rectangles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
