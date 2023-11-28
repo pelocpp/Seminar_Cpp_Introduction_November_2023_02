@@ -10,4 +10,4 @@ extern void test_statisches();
 extern void test_statisches();
 
 // Aufgaben
-void exerciseRectangle();
+void exerciseBankAccount();

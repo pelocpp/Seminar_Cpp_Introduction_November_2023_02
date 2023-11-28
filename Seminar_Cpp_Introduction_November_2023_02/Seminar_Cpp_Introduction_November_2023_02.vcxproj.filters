@@ -13,8 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Rectangles">
+    <Filter Include="Exercise_Rectangles">
       <UniqueIdentifier>{068f7205-4396-4823-8c81-281939eb7e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exercise_BankAccount">
+      <UniqueIdentifier>{2f61ede6-fe43-48ca-ba06-3ed19f220cae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,19 +31,25 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle\Point.cpp">
-      <Filter>Rectangles</Filter>
+      <Filter>Exercise_Rectangles</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle\Rectangle.cpp">
-      <Filter>Rectangles</Filter>
+      <Filter>Exercise_Rectangles</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle\Rectangle_Main.cpp">
-      <Filter>Rectangles</Filter>
+      <Filter>Exercise_Rectangles</Filter>
     </ClCompile>
     <ClCompile Include="Referenzen_vs_Zeiger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Statisches.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BankAccount\BankAccount.cpp">
+      <Filter>Exercise_BankAccount</Filter>
+    </ClCompile>
+    <ClCompile Include="BankAccount\BankAccount_Main.cpp">
+      <Filter>Exercise_BankAccount</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,10 +60,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle\Point.h">
-      <Filter>Rectangles</Filter>
+      <Filter>Exercise_Rectangles</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle\Rectangle.h">
-      <Filter>Rectangles</Filter>
+      <Filter>Exercise_Rectangles</Filter>
+    </ClInclude>
+    <ClInclude Include="BankAccount\BankAccount.h">
+      <Filter>Exercise_BankAccount</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
