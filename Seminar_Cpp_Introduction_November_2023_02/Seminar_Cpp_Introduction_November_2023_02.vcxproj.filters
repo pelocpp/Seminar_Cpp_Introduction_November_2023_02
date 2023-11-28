@@ -39,6 +39,9 @@
     <ClCompile Include="Referenzen_vs_Zeiger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Statisches.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">

@@ -89,5 +89,228 @@ Zusammenfassung:
 
 Anwendungen:
 
-10:55
+== Daten ändern, die als Parameter an Unterprogramme / Methoden
+   übergeben werden.
+
+== Performanz:
+
+   bool equals(Rectangle other);
+
+Ohne jeglichen Einsatz von Referenzen (Pointer) werden Daten
+an Unterprogramme nach der Strategie "Call-by_Value" übergeben.
+
+"Call-by_Value" ===> Es wird eine KOPIE übergeben:
+
+Okay, bei einem 'int' nicht das Problem: Das ist sogar gut so !!!
+(( Übergabe einer Referenz: Indirekte Zugriff / langsamer ))
+
+
+ABER: Übergabe von Objekten: 
+
+class Time
+{
+    int m_seconds;
+    int m_minutes;
+    int m_hours;
+
+    ==> 3 * sizeof (int) = 3 + 4 = 12 
+
+VORSICHT:   Viele Objekte sind 100 Bytes oder mehr groß
+
+    qt / Windows Forms: Ein Window-Objekt kann durch 1000 Bytes oder mehr groß sein.
+
+ Übergabe von Objekten sollte NICHT als KOPIE erfolgen.
+
+ C++: Performance !!!!
+
+ Beispiel:
+
+bool Rectangle::equals(Rectangle& other);
+
+EINZIGE AUSNAHME (also kein &):
+
+Man möchte das Original schützen - mit einer Kopie.
+
+We can do better --- auch in dieser Situation:
+
+bool Rectangle::equals(const Rectangle& other);
+
+We can do more better:
+
+bool Rectangle::equals(const Rectangle& other) const;
+
+Mit const erhalte ich manchmal schwer lesbare Fehlermeldungen:
+
+Was bringt mir 'const' -- neben den bislang besprochenen Aspekten: 
+
+
+'const' Methoden / Zugriff lassen sich erheblich besser OPTIMIEREN.
+
+====> OO - Programmierung
+
+====> Funktionalen Programmierung - Programmierung (F#, Haskell, Python (?), )
+
+Schnell: Keine Objekte -- keine ZUSTANDSVARIABLEN (keinen State)
+
+==================================================================
+
+== Operatoren überladen
+
+== Übung
+
+==================================================================
+
+Überladen von Operatoren
+------------------------
+
+C/C++:
+
+int n, m;
+
+...
+
+if (n == m) {
+   ...
+}
+
+Time jetzt, wann;
+
+
+if (jetzt == wann) {    // a) Fehler b) Lässt sich aber realisieren !!!
+   ...
+}
+
+Idee:
+
+Sehr einfach: Wie die Realisierung einer Methode!
+
+Name der Methode:
+
+operator ==
+
+operator <
+
+operator +:  Sinnhaftigkeit  :  jetzt + wann 
+
+
+
+Frage:
+
+    if (m_hours != other.getHours()) {
+00007FF7713C1F24  mov         rcx,qword ptr [other]  
+00007FF7713C1F2B  call        Time::getHours (07FF7713C15AFh)  
+00007FF7713C1F30  mov         rcx,qword ptr [this]  
+00007FF7713C1F37  cmp         dword ptr [rcx+8],eax  
+00007FF7713C1F3A  je          Time::equals+42h (07FF7713C1F42h)  
+        return false;
+
+
+versus
+
+    if (m_hours != other.m_hours) {
+00007FF680451F24  mov         rax,qword ptr [this]  
+00007FF680451F2B  mov         rcx,qword ptr [other]  
+00007FF680451F32  mov         ecx,dword ptr [rcx+8]  
+00007FF680451F35  cmp         dword ptr [rax+8],ecx  
+00007FF680451F38  je          Time::equals+40h (07FF680451F40h)  
+        return false;
+
+
+
+
+Call - Opcode: Hat zweifelsfrei mehr Taktzyklen als ein direkter Variablenzugriff.
+
+
+Operatoren // Notationen:
+
+Infix-Notation  "in der Mitte"
+
+a + b    // a. + (b)
+
+
+Prefix- , PostFix - Notation
+
+===============================================
+
+Beobachtung:
+
+Habe soeben
+
+    bool operator== (const Time& other) const;
+
+implementiert --- als Member der Klasse.
+
+Was mache ich, wenn ich keinen Zugang zur Klasse habe ??????????
+
+// Bibliothek // Zugekauft // Header-File nicht verfügbar
+
+ZWEITE Möglichkeit:
+
+Ein Operator kann auch als GLOBALE Funktion  realisiert werden.
+
+In diesem Fall MUSS ich über das so genannte "Public Interface" der Klasse gehen.
+
+
+===============================================
+
+
+ToDO: Equals in operator== aufrufen.
+
+===============================================
+
+Übung:
+
+Aspekte:
+
+== Überladen von Operatoren
+== static
+== const, wenn es geht ...
+
+Sparkasse:
+
+class Account
+
+Einzahlen:   deposit
+Abheben:     withdraw
+Kontostand:  balance
+
+operator<: "Hans oder der Sepp mehr am Konto"
+
+operator==: "Haben Hans und Sepp gleich viel am Konto"
+
+Hinweis:
+
+Klasse Konto:
+== Kontostand
+== Kontonummer
+
+operator == : Alle Instanzvariablen vergleichen ??????????????????
+
+           Wenn ja, dann können zwei verschiedenen Konten NIE gleich sein.
+
+           Entwurfsentscheidung: 
+
+           Zwei Konten sind gleich, wenn geich viel Geld auf dem Konto ist!
+
+           Spezifikation.
+
+
+Wie wird eine Kontonummer festgelegt ?
+
+a) Es gibt eine Klassenvariable s_nextAccountNumber = 10000;   // static
+
+    Wenn in einem Konstruktor ein neues Konto vorbelegt wird
+
+    ((  balance = 0; balance = 50 ))
+
+    wird die Kontonummer aus der statischen Variablen s_nextAccountNumber genommen
+
+    und logioscherweise s_nextAccountNumber um 1 erhöht.
+
+
+https://github.com/pelocpp/cpp_introduction/blob/master/Cpp_Introduction/Exercises/Exercises_BankAccount.md
+
+
+
+
 

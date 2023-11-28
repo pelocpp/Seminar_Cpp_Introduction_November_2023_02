@@ -32,7 +32,7 @@ int main_hello_world()
 
 int main()
 {
-    test_references();
+    uhrzeiten_03();
 
     return 1;
 }

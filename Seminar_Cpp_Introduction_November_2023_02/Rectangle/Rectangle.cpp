@@ -34,10 +34,15 @@ namespace Rectangle {
 
 
     // getter/setter
-    double Rectangle::getX() { return m_x; }
-    double Rectangle::getY() { return m_y; }
-    double Rectangle::getWidth() { return m_width; }
-    double Rectangle::getHeight() { return m_height; }
+    double Rectangle::getX() const {
+    
+        // m_x = 999;    // falsch: Error
+        return m_x;
+    }
+
+    double Rectangle::getY() const { return m_y; }
+    double Rectangle::getWidth() const { return m_width; }
+    double Rectangle::getHeight() const { return m_height; }
 
     void Rectangle::setX(double x)
     {
@@ -78,38 +83,66 @@ namespace Rectangle {
 
     // bool: false  / true
 
-    bool Rectangle::equals(Rectangle other)
+    bool Rectangle::equals(const Rectangle& other) const
     {
-        if (m_x != other.m_x) {
+        // Achtung: Fehler ... wo bleibt der Schutz ???
+
+        bool result;
+
+        // m_y = 8888;    //  ERROR // const am Ende
+        // other.m_x = 999;  ERROR // const am Parameter other
+
+        if (m_x != other.getX()) {
             return false;
         }
 
-        if (m_y != other.m_y) {
+        if (m_y != other.getY()) {
             return false;
         }
 
-        if (m_width != other.m_width) {
+        if (m_width != other.getWidth()) {
             return false;
         }
 
-        if (m_height != other.m_height) {
+        if (m_height != other.getHeight()) {
             return false;
         }
 
         return true;
     }
 
-    double Rectangle::circumference()
+    //bool Rectangle::equals(Rectangle& other)
+    //{
+    //    if (m_x != other.m_x) {
+    //        return false;
+    //    }
+
+    //    if (m_y != other.m_y) {
+    //        return false;
+    //    }
+
+    //    if (m_width != other.m_width) {
+    //        return false;
+    //    }
+
+    //    if (m_height != other.m_height) {
+    //        return false;
+    //    }
+
+    //    return true;
+    //}
+
+    double Rectangle::circumference() const
     {
         return 2.0 * (m_width + m_height);
     }
 
-    double Rectangle::area()
+    double Rectangle::area() const
     {
         return m_width * m_height;
     }
 
-    bool Rectangle::isSquare()
+    bool Rectangle::isSquare() const
     { 
         bool result = (m_width == m_height);
         return result;
@@ -117,7 +150,7 @@ namespace Rectangle {
         return m_width == m_height;   // kürzer  // zu kurz:  Lesbarkeit ....
     }
 
-    Point Rectangle::center()
+    Point Rectangle::center() const
     {
         double zwei = 2;
 
@@ -131,14 +164,14 @@ namespace Rectangle {
     }
 
 
-    double Rectangle::diagonal()
+    double Rectangle::diagonal() const
     {
         return std::sqrt(
             m_width * m_width + m_height * m_height
         );
     }
 
-    Rectangle Rectangle::intersection(Rectangle rect)
+    Rectangle Rectangle::intersection(const Rectangle& rect) const
     {
         if (m_y + m_height < rect.m_y) {
             Rectangle empty;
@@ -185,7 +218,7 @@ namespace Rectangle {
         return result;
     }
 
-    void Rectangle::print()
+    void Rectangle::print() const
     {
 
         std::cout << "Rectangle: (" << getX() << ',' << getY() << "),(Width="

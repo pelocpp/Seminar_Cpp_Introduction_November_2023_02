@@ -19,15 +19,20 @@ namespace Rectangle {
         double m_height;
 
     public:
+
+        // "öffentliche Schnittstelle" / public interface: Ist ALLES, was public ist
+
         // c'tors
         Rectangle();
         Rectangle(double x, double left, double width, double height);
 
+        static void tueWas () {}
+
         // getter/setter
-        double getX();
-        double getY();
-        double getWidth();
-        double getHeight();
+        double getX() const;
+        double getY() const;
+        double getWidth() const;
+        double getHeight() const;
 
         void setX(double x);
         void setY(double y);
@@ -35,15 +40,19 @@ namespace Rectangle {
         void setHeight(double height);
 
         // public interface // methods
-        double circumference();
-        double diagonal();
-        double area();
-        bool isSquare();
+        double circumference() const;
+        double diagonal() const;
+        double area() const;
+        bool isSquare() const;
         void moveTo(double, double);
-        bool equals(Rectangle other);
-        Point center();
-        Rectangle intersection(Rectangle other);
-        void print();
+        bool equals(const Rectangle& other) const;
+        Point center() const;
+        Rectangle intersection(const Rectangle& other) const;
+        void print() const;
+
+        // private helper methods
+    private:
+        void helper() {}
     };
 }
 

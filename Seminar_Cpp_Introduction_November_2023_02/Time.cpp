@@ -96,7 +96,7 @@ void Time::setSeconds(int seconds)
 
 
 
-int Time::getHours()
+int Time::getHours() const
 {
     return m_hours;
 }
@@ -120,3 +120,94 @@ void Time::increment()
     // very, very simple // Überlauf fehlt
     m_seconds = m_seconds + 1;
 }
+
+bool Time::equals(const Time& other) const
+{
+    if (m_hours != other.m_hours) {
+        return false;
+    }
+    else if (m_minutes != other.m_minutes) {
+        return false;
+    }
+    else if (m_seconds != other.m_seconds) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+// Gretchen-Frage:
+//
+//bool Time::equals(const Time& other) const
+//{
+//    if (getHours() != other.getHours()) {
+//        return false;
+//    }
+//    else if (m_minutes != other.getMinutes()) {
+//        return false;
+//    }
+//    else if (m_seconds != other.getSeconds()) {
+//        return false;
+//    }
+//    else {
+//        return true;
+//    }
+//}
+
+
+bool Time::operator== (const Time& other) const
+{
+    if (m_hours != other.m_hours) {
+        return false;
+    }
+    else if (m_minutes != other.m_minutes) {
+        return false;
+    }
+    else if (m_seconds != other.m_seconds) {
+        return false;
+    }
+    else {
+        return true;
+    }
+
+    //bool result = equals(other);
+
+    //// vs.
+
+    //bool result1 = this -> equals(other);
+}
+
+// Passt -- "Public Interface"
+//bool operator== (const Time& lhs, const Time& rhs)
+//{
+//    if (lhs.getHours() != rhs.getHours()) {
+//        return false;
+//    }
+//    else if (lhs.getMinutes() != rhs.getMinutes()) {
+//        return false;
+//    }
+//    else if (lhs.getSeconds() != rhs.getSeconds()) {
+//        return false;
+//    }
+//    else {
+//        return true;
+//    }
+//}
+
+// Passt ...
+//bool operator== (const Time& lhs, const Time& rhs)
+//{
+//    if (lhs.m_hours != rhs.m_hours) {
+//        return false;
+//    }
+//    else if (lhs.m_minutes != rhs.m_minutes) {
+//        return false;
+//    }
+//    else if (lhs.m_seconds != rhs.m_seconds) {
+//        return false;
+//    }
+//    else {
+//        return true;
+//    }
+//}

@@ -43,3 +43,45 @@ void uhrzeiten_02()
     //Time wannAuch (16);
     //wannAuch.print();
 }
+
+
+void uhrzeiten_03()
+{
+    Time jetzt (13, 17, 11);
+
+    Time dann(14, 30, 40);
+
+    bool gleich = jetzt.equals(dann);
+
+    if (jetzt == dann) {                              // Infix-Notation
+        std::cout << "sind gleich" << std::endl;
+    }
+    else {
+        std::cout << "sind nicht gleich" << std::endl;
+    }
+
+    if (jetzt == dann) {                              // Infix-Notation
+        std::cout << "sind gleich" << std::endl;
+    }
+    else {
+        std::cout << "sind nicht gleich" << std::endl;
+    }
+
+    // Nur als Spielerei :-)
+
+    if ( jetzt.operator== (dann) ) {
+        std::cout << "sind gleich" << std::endl;
+    }
+    else {
+        std::cout << "sind nicht gleich" << std::endl;
+    }
+
+    // Nur als Spielerei :-)
+
+    //if ( operator== (jetzt, dann)   ) {
+    //    std::cout << "sind gleich" << std::endl;
+    //}
+    //else {
+    //    std::cout << "sind nicht gleich" << std::endl;
+    //}
+}
