@@ -311,6 +311,22 @@ a) Es gibt eine Klassenvariable s_nextAccountNumber = 10000;   // static
 https://github.com/pelocpp/cpp_introduction/blob/master/Cpp_Introduction/Exercises/Exercises_BankAccount.md
 
 
+// ====================================================================
 
+Ausgabe mit operator << :
 
+    Time jetzt;
+
+    std::cout << jetzt;
+
+    << hat zwei Operanden:
+
+    Rechts:  jetzt    == class Time
+    Links:  std::cout == class std::ostream
+
+Kann operator << IN DER KLASSE Time realisert / vereinbart werden ????????
+
+Nein -- weil der linke Operand vom Typ std::ostream ist -- also nicht vom Typ der Klasse Time.
+
+Eine Variante bleibt übrig:  Als globale Funktion.
 

@@ -2,6 +2,7 @@
 
 #include <cstdio>
 #include <iostream>
+#include <iomanip>
 
 #include "Time.h"    // <============== textuelle Ersetzung
 
@@ -210,4 +211,29 @@ bool Time::operator== (const Time& other) const
 //    else {
 //        return true;
 //    }
+//}
+
+
+// Realisierung ohne 'friend' -- KEIN Zugriff auf die Intanzvariablen,
+// sondern auf das "Public Interface"
+std::ostream& operator << (std::ostream& os, const Time& t)
+{
+    // hh:mm:ss
+    os << std::setw(2) << std::setfill('0') << t.getHours() << ':';
+    os << std::setw(2) << std::setfill('0') << t.getMinutes() << ':';
+    os << std::setw(2) << std::setfill('0') << t.getSeconds();
+
+    return os;
+}
+
+
+// Realisierung als 'friend' -- direkter Zugriff auf die Intanzvariablen
+//std::ostream& operator << (std::ostream& os, const Time& t)
+//{
+//    // hh:mm:ss
+//    os << std::setw(2) << std::setfill('0') << t.m_hours << ':';
+//    os << std::setw(2) << std::setfill('0') << t.m_minutes << ':';
+//    os << std::setw(2) << std::setfill('0') << t.m_seconds;
+//
+//    return os;
 //}

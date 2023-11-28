@@ -85,3 +85,22 @@ void uhrzeiten_03()
     //    std::cout << "sind nicht gleich" << std::endl;
     //}
 }
+
+void uhrzeiten_04()
+{
+    std::string("werwerwe");
+
+    Time jetzt(16, 5, 1);
+
+    std::cout.write("ABC", 3);
+
+    // Regelfall: << Bit-Operation: Links-Shift
+    int n = 7;  
+    n = n << 1;
+
+    // Idee: Überladen
+    // <<   Pfeil:       <--------
+    std::cout << '?' << std::endl;
+
+    std::cout << jetzt << std::endl;
+}

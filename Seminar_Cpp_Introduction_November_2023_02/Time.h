@@ -2,10 +2,14 @@
 
 #pragma once
 
+#include <iostream>
+
 class Date{};
 
 class Time
 {
+    // friend std::ostream& operator << (std::ostream& os, const Time& t);
+
     // friend bool operator== (const Time& lhs, const Time& rhs);
 
     // friend bool operator== (const Date& lhs, const Date& rhs);  // ???? 
@@ -50,6 +54,8 @@ public:
     // operators
     bool operator== (const Time& other) const;
 };
+
+std::ostream& operator << (std::ostream& os, const Time& t);
 
 // ========================================================
 

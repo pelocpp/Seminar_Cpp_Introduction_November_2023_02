@@ -87,7 +87,7 @@ namespace Rectangle {
     {
         // Achtung: Fehler ... wo bleibt der Schutz ???
 
-        bool result;
+       // bool result;
 
         // m_y = 8888;    //  ERROR // const am Ende
         // other.m_x = 999;  ERROR // const am Parameter other
