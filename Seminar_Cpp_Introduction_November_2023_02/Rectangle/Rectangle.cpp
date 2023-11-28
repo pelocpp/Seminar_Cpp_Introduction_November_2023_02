@@ -110,11 +110,11 @@ namespace Rectangle {
     }
 
     bool Rectangle::isSquare()
-    {
-        //bool result = (m_width == m_height);
-        //return result;
+    { 
+        bool result = (m_width == m_height);
+        return result;
 
-        return m_width == m_height;
+        return m_width == m_height;   // kürzer  // zu kurz:  Lesbarkeit ....
     }
 
     Point Rectangle::center()

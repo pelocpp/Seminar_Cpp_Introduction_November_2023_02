@@ -132,6 +132,7 @@
     <ClCompile Include="Rectangle\Point.cpp" />
     <ClCompile Include="Rectangle\Rectangle.cpp" />
     <ClCompile Include="Rectangle\Rectangle_Main.cpp" />
+    <ClCompile Include="Referenzen_vs_Zeiger.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@ int main_hello_world()
 
 int main()
 {
-    exerciseRectangle();
+    test_references();
 
     return 1;
 }

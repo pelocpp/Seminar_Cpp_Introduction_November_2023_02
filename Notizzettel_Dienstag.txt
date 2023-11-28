@@ -1,0 +1,93 @@
+C++ Einführung
+
+Peter Loos
+
+Dienstag
+
+=================================================================
+
+Fortgeschrittene Sprachmittel:
+
+== Pointer   (C/C++)
+--------------------
+
+
+Vergleich:
+
+Direkter Zugriff:
+
+00007FF7C58E4DE6  mov         dword ptr [n],315h  
+
+Indirekter Zugriff:
+
+    *ip = 456;
+00007FF7C58E4DDC  mov         rax,qword ptr [ip]  
+00007FF7C58E4DE0  mov         dword ptr [rax],1C8h  
+
+
+Beispiel:
+
+... 564  ==> ... 568 (... oder ... 56C)
+
+== Zeiger - Arithmetik:
+
+Ist ein Feature von C/C++, um auf einen Speicherabschnitt
+zugreifen zu können.
+
+== Beobachtung:
+
+Der Umgang mit Zeigern / Adressen / Datentyp zB int* / kann 
+zu Fehlern führen // ist nicht ganz einfach.
+
+==> C++ eine Überlegung: Kann man das einfacher machen ???
+
+2. Sprachfeature: Referenzen (C++) 
+
+Ziel: Vereinfachung des Umgangs mit Adressen.
+
+== Referenz  (C++)
+------------------
+
+Was ist eine Referenz "intern": Eine Adresse.
+
+Was ist eine Referenz aus Sicht des Programms:
+
+   Ein Alias / Alias-Name für eine andere Variable / Objekt.
+
+Hauptintention:
+
+Vereinfachung der Schreibweise / Grammatik / Syntax 
+für den indirekten Zugriff auf Variablen.
+
+
+
+Achtung: Vergleich Variable <=> Eine Referenz dieser Variablen:
+
+    ++ri;      // Erwartung: m wird um den Wert 1 inkrementiert (NICHT die Adresse)
+00007FF656C03063  mov         rax,qword ptr [ri]  
+00007FF656C03067  mov         eax,dword ptr [rax]  
+00007FF656C03069  inc         eax  
+00007FF656C0306B  mov         rcx,qword ptr [ri]  
+00007FF656C0306F  mov         dword ptr [rcx],eax  
+
+    ++m;
+00007FF656C03071  mov         eax,dword ptr [m]  
+00007FF656C03074  inc         eax  
+00007FF656C03076  mov         dword ptr [m],eax  
+
+
+5 versus 3 Anweisungen !
+
+==============================================================
+
+Zusammenfassung:  
+
+== Pointer 
+== Referenzen
+
+==============================================================
+
+Anwendungen:
+
+10:55
+

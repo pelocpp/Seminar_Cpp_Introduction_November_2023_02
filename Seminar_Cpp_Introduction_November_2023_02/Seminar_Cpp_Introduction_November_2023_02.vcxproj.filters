@@ -36,6 +36,9 @@
     <ClCompile Include="Rectangle\Rectangle_Main.cpp">
       <Filter>Rectangles</Filter>
     </ClCompile>
+    <ClCompile Include="Referenzen_vs_Zeiger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
