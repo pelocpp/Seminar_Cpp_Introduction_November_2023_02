@@ -51,6 +51,12 @@
     <ClCompile Include="BankAccount\BankAccount_Main.cpp">
       <Filter>Exercise_BankAccount</Filter>
     </ClCompile>
+    <ClCompile Include="Namensraume.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Zeichen_Zeichenketten.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">

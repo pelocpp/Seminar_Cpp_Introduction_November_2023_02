@@ -1,0 +1,104 @@
+C++ Einführung
+
+Peter Loos
+
+Mittwoch
+
+=================================================================
+
+a) C++ ist verdammt schwer.
+
+b) Man kann seinen eigenen Quellcode stilistisch in verschieden Richtungen ausprägen.
+
+“prozedurale” Programmierung
+“objektorientierte” Programmierung
+“generische” Programmierung (Templates)
+
+// -----------------------
+
+== Sprache mit Referenzen (Java, C#, JavaScript :  new )
+
+== Sprache mit Werten und Referenzen (C++)
+
+
+c) Wie sollte "ich" mich verhalten:
+
+  Ich verwende nur die Sprachelemente, die ich beherrsche (in denen ich mich gut auskenne).
+
+=================================================================
+
+'a'
+
+und 
+
+"a"
+
+==========
+
+'a'
+
+Mit Einzelhochkomma '' wird EIN Zeichen beschrieben 
+
+(intern: ACII)
+
+==========
+
+"ABC":     Zeichenkette
+
+Datentyp von "ABC":
+
+Sicht aus "C":
+
+Array von Character:
+
+char viele_zeichen [4];  // terminierende Null  
+
+C:
+
+Achtung: Bitte keine Konfusion:
+
+char: '0'   ==> 48 
+
+char: '0'   ==> 0 
+
+char ch = 0;   // NICHT '0' (48)
+
+oder
+
+char ch = '\0';  // Dezimal 0
+
+
+=============================================
+
+
+Sicht aus "C++":  std::string
+
+size_t
+
+Pedanten:
+
+int:  Ganze Zahlen 
+
+Pedanten:  Hmmmm, könnten auch negative Zahlen sein ...
+
+Ne, ein neuer Datentyp muss her:
+
+unsigned long long == size_t
+
+a) size_t hat die Breite das Akkus (EAX)
+
+b) size_t kennt nur positive Werte
+
+
+std::isdigit(x)  ===> x = 0, 1, ... 9  (true) , sonst false
+
+
+
+
+
+
+
+
+
+
+

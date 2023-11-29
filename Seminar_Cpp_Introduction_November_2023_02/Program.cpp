@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 #include "MyFunctions.h"
 
 // Funktion: a la C
@@ -19,20 +21,33 @@ void ausgabe()
     std::cout << "Ich bin ein Unterprogramm" << std::endl;
 }
 
+//int main_hello_world()
+//{
+//    std::cout << "Hello World" << std::endl;
+//
+//    double ergebnis = tueWas();
+//
+//    std::cout << "tueWas: " << ergebnis << std::endl;
+//
+//    return 0; 
+//}
+
 int main_hello_world()
 {
-    std::cout << "Hello World" << std::endl;
+    using namespace std;  // Vorsicht: 
+    
+    cout << "Hello World" << endl;
 
     double ergebnis = tueWas();
 
-    std::cout << "tueWas: " << ergebnis << std::endl;
+    cout << "tueWas: " << ergebnis << endl;
 
-    return 0; 
+    return 0;
 }
 
 int main()
 {
-    uhrzeiten_04();
+    test_strings_and_chars();
 
     return 1;
 }

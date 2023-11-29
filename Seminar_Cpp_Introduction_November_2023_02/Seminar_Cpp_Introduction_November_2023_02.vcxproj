@@ -130,6 +130,7 @@
     <ClCompile Include="Anwendung_Uhrzeite.cpp" />
     <ClCompile Include="BankAccount\BankAccount.cpp" />
     <ClCompile Include="BankAccount\BankAccount_Main.cpp" />
+    <ClCompile Include="Namensraume.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Rectangle\Point.cpp" />
     <ClCompile Include="Rectangle\Rectangle.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="Referenzen_vs_Zeiger.cpp" />
     <ClCompile Include="Statisches.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Zeichen_Zeichenketten.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BankAccount\BankAccount.h" />
