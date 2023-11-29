@@ -93,10 +93,203 @@ b) size_t kennt nur positive Werte
 std::isdigit(x)  ===> x = 0, 1, ... 9  (true) , sonst false
 
 
+==========================================================
+
+return (IsLeapYear(year)) ? 29 : 28;
 
 
+// ternäre Operator: ?:
+
+int result = ( bedingung ) ? expression1 :  expression2 ;
+
+int result = ( IsLeapYear(year) ) ? 29 : 28;
+
+Kurz:
+
+if ( IsLeapYear(year) )  {
+    result = 29;
+}
+else {
+    result = 28;
+}
+
+C:
+
+==========================================================
+
+Arrays  // Liste // std::array 
+
+"Dynamisch"
+
+Felder in C++:  Wie in C.
+
+int zahlen [10];  // Feld der Länge 10
+
+         // FIXED SIZE !!!!!!!!!!!
+
+int n;
+
+std::cin >> n;  // Eine Zahl von der Konsole einlesen
+
+int zahlen [n];  // NO WAY !!!!
+
+Bitte: Dialekte von C: C99: da geht das.
+
+Perl // Python // fast alle anderen:
+
+List // Vektor // C#: Arraylist
+
+Gibt es auch in C++:  Bibliothek.
+
+std::list
+std::array
+std::vector  // Fixed-Size Array: UNTERSCHIED: Länge ist variabel
+
+Übung: Dynamic Array
+
+=============================================================
+
+Dynamische Daten
 
 
+C++ Programm:
+
+A) Globale Variablen
+
+B) Lokale Variablen (Zwischenergebnissen)
+
+X) Instanzvariablen ==> Objekt
+
+C) Dynamische Variablen:
+
+   Wie lange lebt diese?
+
+   Solange wie man sie benötigt !!!!
+
+   new / delete
+
+==================================
+
+Zu jedem new gibt es ein delete !!!!!!!!!!!!!!!!!!
+
+
+Wie kann ich Speicher länger aufheben ???
+
+Mischung aus global (lokal) und dynamisch:
+
+== Global: Game Programming   // Board
+
+== Nächsten Zug berechnen :  
+
+   Hmmm, da sind viele vorausschauende Berechnungen notwendig:
+
+   Dynamische Daten würden sich hierzu eignen:  new / delete 
+
+   "Anker": Zentrales Strategie-Objekt: Global
+
+
+===================================================
+
+
+new und delete in 2 Varianten:
+
+A) Für eine einzelne Variable:
+
+    "Scalar new" // "Scalar delete"
+
+
+B) Für mehrere Variablen
+
+    "Array new" // "Array delete"
+
+
+    Was passiert bei "Scalar delete" mit vorangegangenem  "Array new" :
+
+    UB  ---  Undefined Behaviour --- Komplexität von C++
+
+
+Frage: Garbage Collector:
+
+i) NO !!!!!!!!!!!!!
+
+ii) Es gibt Smart Pointer: Diese übernehmen die Aufgabe des delete.
+
+    std::shared_ptr =====> Etwas in Richtung Garbage Collector (Benutzt-Zähler)
+
+
+Anwendung:
+
+Algorithmen & Datenstrukturen
+-----------------------------
+
+Frage: Array : int zahlen [???];
+
+new int [n]   ; n ????
+
+Verkettete Liste
+----------------
+
+Linked List
+
+std::forward_list
+
+Ist nur mit new konstruierbar.
+
+===========================================
+
+Ein Beispiel:
+
+Haben:
+
+int zahlen [10];  // FIXED SIZE ARRAY
+
+Nicht Haben:
+
+Feld variabler Länge:
+
+class DynamicArray  
+
+Wo, wie übergeben wir die variable Länge:
+
+== Konstruktor : Variable 
+== setter
+
+
+==================================
+
+BILD !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+==================================
+
+
+new und delete:
+
+DREI REGELN:
+
+a) Ein 'new' ===> ein 'delete'
+
+b) Ein 'new' ===> KEIN 'delete': Da ist ein Stück Speicher für ALLE Zeiten vergeben,
+                  selbst wenn es den Zeiger, der ursprünglich via new zurückgegeben worden ist,
+                  nicht mehr verfügbar ist.
+
+c) Ein 'new' ===> ZWEI 'delete': Na und ???
+
+                  NEIN: ABSTURZ: Warum. Das Laufzeitsystem, dass die Halde verwaltet,
+                  ist nicht in der Lage, zu erkennen, ob eine Adresse gültig ist oder nicht.
+
+
+===================================================
+
+Philosophy of C:
+
+"A programmer knows what he does"
+
+Maschinenraum von C++:
+
+
+== Destruktor
+== Operator=
+== Kopieren ....
 
 
 

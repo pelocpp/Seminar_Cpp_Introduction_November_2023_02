@@ -7,8 +7,9 @@
 #include <cctype>
 #include <cstdlib>
 
-bool IsLeapYear(int year)
+bool IsLeapYear(int year)  // Leap Year == schaltjahr
 {
+    // 2000:  5 mal 400
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
@@ -56,6 +57,7 @@ bool IsValid(int day, int month, int year)
     return true;
 }
 
+// ===========================================================
 
 bool verifyDateFormat(const std::string& date)
 {
@@ -68,7 +70,7 @@ bool verifyDateFormat(const std::string& date)
         return false;
     }
 
-    int indices[]{ 0, 1, 3, 4, 6, 7, 8, 9 };
+    int indices[8] { 0, 1, 3, 4, 6, 7, 8, 9 };
 
     for (int i = 0; i < 8; ++i) {
 
@@ -84,7 +86,8 @@ bool verifyDateFormat(const std::string& date)
 
 std::string dateToWord(const std::string& date)
 {
-    static std::string months[]{
+    static std::string months[12]  // globales Array -- allerdings nur in dieser Funktion verfügbar
+    {
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     };
@@ -111,10 +114,13 @@ std::string dateToWord(const std::string& date)
 
     // remove leading '0', if any
     if (sDay[0] == '0') {
-        sDay = sDay[1];
+        sDay = sDay[1];   // Rechte Seite: char ==> Umwandlung in std::string
+        
+                          // Wertzuweisung von Objekten (geht)
     }
 
     std::string word = sDay + ". " + label + " " + sYear;
+
     return word;
 }
 

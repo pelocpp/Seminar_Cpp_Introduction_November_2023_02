@@ -130,6 +130,8 @@
     <ClCompile Include="Anwendung_Uhrzeite.cpp" />
     <ClCompile Include="BankAccount\BankAccount.cpp" />
     <ClCompile Include="BankAccount\BankAccount_Main.cpp" />
+    <ClCompile Include="Dynamic.cpp" />
+    <ClCompile Include="DynamicArray.cpp" />
     <ClCompile Include="Exercise_Zeichenketten.cpp" />
     <ClCompile Include="Namensraume.cpp" />
     <ClCompile Include="Program.cpp" />

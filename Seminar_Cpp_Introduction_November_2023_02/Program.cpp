@@ -47,7 +47,7 @@ int main_hello_world()
 
 int main()
 {
-    exerciseStrings();
+    test_dynamic_array();
 
     return 1;
 }

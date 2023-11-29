@@ -1,0 +1,2 @@
+
+DynArray mit anderen Datentypen

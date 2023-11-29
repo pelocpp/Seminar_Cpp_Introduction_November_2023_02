@@ -63,6 +63,12 @@
     <ClCompile Include="Exercise_Zeichenketten.cpp">
       <Filter>Exercise_Zeichenketten</Filter>
     </ClCompile>
+    <ClCompile Include="Dynamic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
