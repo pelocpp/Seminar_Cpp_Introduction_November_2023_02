@@ -47,7 +47,7 @@ int main_hello_world()
 
 int main()
 {
-    test_strings_and_chars();
+    exerciseStrings();
 
     return 1;
 }

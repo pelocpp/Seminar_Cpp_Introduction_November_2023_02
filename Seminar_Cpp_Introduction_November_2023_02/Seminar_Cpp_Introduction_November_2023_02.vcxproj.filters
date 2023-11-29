@@ -19,6 +19,9 @@
     <Filter Include="Exercise_BankAccount">
       <UniqueIdentifier>{2f61ede6-fe43-48ca-ba06-3ed19f220cae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Exercise_Zeichenketten">
+      <UniqueIdentifier>{dbe37159-4bcd-4545-b689-bea19404eb57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
@@ -56,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="Zeichen_Zeichenketten.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercise_Zeichenketten.cpp">
+      <Filter>Exercise_Zeichenketten</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
