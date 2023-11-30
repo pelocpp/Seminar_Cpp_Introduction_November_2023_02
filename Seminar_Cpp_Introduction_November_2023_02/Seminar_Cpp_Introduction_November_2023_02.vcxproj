@@ -141,6 +141,7 @@
     <ClCompile Include="Referenzen_vs_Zeiger.cpp" />
     <ClCompile Include="Statisches.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Vererbung.cpp" />
     <ClCompile Include="Zeichen_Zeichenketten.cpp" />
   </ItemGroup>
   <ItemGroup>

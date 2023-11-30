@@ -10,6 +10,7 @@ extern void test_strings_and_chars();
 extern void test_statisches();
 extern void test_dynamic();
 extern void test_dynamic_array();
+extern void test_inheritance();
 
 
 // Aufgaben

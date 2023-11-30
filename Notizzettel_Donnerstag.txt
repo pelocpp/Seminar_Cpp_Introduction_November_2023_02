@@ -1,2 +1,216 @@
+C++ Einführung
 
-DynArray mit anderen Datentypen
+Peter Loos
+
+Donnerstag
+
+=================================================================
+
+Zu behandeln:
+
+Die “Rule of Zero”:  Nichts -- (new: NICHT) -- STL Container
+
+Die “Rule of Three”
+
+Die “Rule of Five”:  Tuning: Unnütze Kopien zu vermeiden: "Verschiebe-Semantik" / "Move-Semantik"
+
+-----------------------
+
+A) C-Array:  int zahlen [10];  FIXED-SIZE ARRAY - Länge ist konstant 
+
+B) DynArray: Der Parameter des Konstruktors ist variabel 
+
+   resize
+
+-----------------------
+
+
+
+== Abschließende Betrachtung der Klasse DynArray.
+
+== resize, at 
+
+== In Zusammenhang mit Exception-Handling
+
+----
+
+== Vererbung.
+
+
+
+
+=================================================================
+
+
+== new , delete
+
+== Freispeicherverwaltung  
+
+   Da sind ja zusätzliche Informationen notwendig:
+
+   0x1024 :  100 Bytes ==> Information: 
+
+
+== malloc // free // realloc
+
+======================================
+
+==  ===> Infix - Notation abgebildet
+
+t1, t2:   t1 == t2
+
+      :   t1. operator== (t2);
+
+======================================
+
+[]    :   value = da.operator[](2);
+
+Wie sind eckige Klammern bzgl. der Grammatik in C++ vorhanden ???
+
+feld [2];
+
+object [2]; 
+
+======================================
+
+Operatoren in der Grammatik:
+
+Arithmetischer Ausdruck
+
+x = a + 3 * b;
+
+========================================
+
+Frage bzw. Vergleich:
+
+int operator[] (int index) {  // LESEND
+
+    value = da[2];
+00007FF7181AA440  mov         edx,2  
+00007FF7181AA445  lea         rcx,[da]  
+00007FF7181AA449  call        DynamicArray::operator[] (07FF7181A1B27h)  
+00007FF7181AA44E  mov         dword ptr [value],eax  
+
+
+versus:
+
+int& operator[] (int index) {   BEACHTE & nach int am ANFANG !!!
+
+    value = da[2];
+00007FF7D82FA442  mov         edx,2  
+00007FF7D82FA447  lea         rcx,[da]  
+00007FF7D82FA44B  call        DynamicArray::operator[] (07FF7D82F1B2Ch)  
+00007FF7D82FA450  mov         eax,dword ptr [rax]  
+00007FF7D82FA452  mov         dword ptr [value],eax  
+
+
+// ============================================================
+
+Sind in der STL throws enthalten ???
+
+Ja und Nein.
+
+Beispiel:
+
+std::vector
+
+Zugriff auf ein Element:
+
+Methode at:
+
+operator []:
+
+
+// ============================================================
+
+Vererbung:
+
+Was bringt sie ??
+
+Wiederverwendung von Quellcode !
+
+Wann kann ich Vererbung sinnvoll einsetzen ????
+
+Konzeptioneller Betrachtung:
+
+== Klasse Rectangle
+
+== Klasse ColoredRectangle
+
+Frage: 
+
+==> Ein farbiges Rechteck ist auch ein Rechteck.
+
+==> Ein farbiges Rechteck ist ein Rechteck mit einer bestimmten Farbe.
+
+Beobachtung:
+
+Beziehungen // Relationship:
+
+ist-ein Beziehung // is-a relationship
+
+Ein farbiges Rechteck "ist-ein" Rechteck
+
+Kontrollfrage:
+
+== Klasse Point
+
+== Klasse Line
+
+Frage:
+
+==> Eine Linie besteht aus mehreren Punkten
+
+==> Eine Linie ist-eine Verbindung von zwei Punkten.
+
+Hinterfragen:
+
+A) Eine Linie ist-ein Punkt (keine Sonderfälle): nein
+
+B) Ein Punkt ist eine Linie : nein.
+
+ABER:
+
+Eine Line hat zwei Punkte
+
+Beziehungen // Relationship:
+
+hat-ein Beziehung // has-a relationship
+
+Plural: hat-zwei // hat-n    // unendlich: Speicher
+
+Was bringt uns die hat-ein c ???????????????
+
+===========> Member Daten !!!
+
+KEINE VERERBUNG.
+
+class Line 
+{
+    Point m_begin;
+    Point m_end;
+}
+
+====================================================
+
+Ist-Ein Beziehung =====> Vererbung.
+
+====================================================
+
+private versus protected:
+
+A) Sind die Daten "extrem" empfindlich:
+
+   private und getter / setter (Public Interface)
+
+B) Abgeleitete Klassen gehen "vertrauensvoll" mit den "protected"-Daten
+   der Vaterklasse um: "protected".
+
+====================================================
+
+Methode mit demselben Namen (Schnittstelle) in der Vater- und Kind-Klasse:
+
+Verdecken:  SCHLECHT // Fragwürdig // Code Smell  // "es riecht"
+
+
+====================================================

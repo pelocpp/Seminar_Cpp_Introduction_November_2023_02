@@ -47,7 +47,22 @@ int main_hello_world()
 
 int main()
 {
-    test_dynamic_array();
+    try
+    {
+        test_inheritance();
+    }
+    catch (std::overflow_error ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    catch (std::out_of_range ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    catch (std::exception ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
 
     return 1;
 }

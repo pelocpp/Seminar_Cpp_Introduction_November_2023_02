@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdexcept>
+#include <string>
 
 class DynamicArray
 {
@@ -58,6 +60,90 @@ public:
         }
     }
 
+    // getter
+    int getAt(int index) {
+        if (index < m_length) {
+            return m_data[index];
+        }
+        else {
+            std::cout << "Falscher Index:" << index << std::endl;
+            return -1; // ???????????????????  NEIN
+        }
+    }
+
+    // operator 
+    //int operator[] (int index) {
+    //    if (index < m_length) {
+    //        return m_data[index];
+    //    }
+    //    else {
+    //        std::cout << "Falscher Index:" << index << std::endl;
+    //        return -1; // ???????????????????  NEIN
+    //    }
+    //}
+
+    int& operator[] (int index) {
+
+        static int empty = -1;
+
+        if (index < m_length) {
+            return m_data[index];
+        }
+        else {
+            std::cout << "Falscher Index:" << index << std::endl;
+            
+            // Lösung 1:
+            // return empty;  // Unschön, weil der Aufrufer nicht so wirklich
+            //                // mitbekommt, dass der Index falsch ist.
+
+            // Lösung 2:
+            //                    "..."  const char*
+            // std::string message = "Falscher Index an Stelle" + index;
+
+            std::string message1 = "Falscher Index an Stelle " + std::to_string(index);
+
+            std::string message2 
+                = std::string ("Falscher Index an Stelle ") + std::to_string (index);
+
+            //std::string message3
+            //    = std::string("Falscher Index an Stelle ").append(std::to_string(index));
+
+            throw std::out_of_range(message1);
+        }
+    }
+
+    // int* operator[] (int index) {
+
+    //    static int empty = -1;
+
+    //    if (index < m_length) {
+    //        return &m_data[index];
+    //    }
+    //    else {
+    //        std::cout << "Falscher Index:" << index << std::endl;
+
+    //        return nullptr;
+
+    //        // Lösung 1:
+    //        // return empty;  // Unschön, weil der Aufrufer nicht so wirklich
+    //        //                // mitbekommt, dass der Index falsch ist.
+
+    //        // Lösung 2:
+    //        //                    "..."  const char*
+    //        // std::string message = "Falscher Index an Stelle" + index;
+
+    //        //std::string message1 = "Falscher Index an Stelle " + std::to_string(index);
+
+    //        //std::string message2
+    //        //    = std::string("Falscher Index an Stelle ") + std::to_string(index);
+
+    //        ////std::string message3
+    //        ////    = std::string("Falscher Index an Stelle ").append(std::to_string(index));
+
+    //        //throw std::out_of_range(message1);
+    //    }
+    //}
+
     void print() {
 
         std::cout << "Length: " << m_length << std::endl;
@@ -72,6 +158,34 @@ public:
             m_data[i] = value;
         }
     }
+
+    void resize(int newLength) {
+
+        // allocate new buffer
+        int* newBuffer = new int[newLength];
+
+        // Stillschweigend: Nehme an, dass neue Länge größer ist als alte Länge
+        
+        // umkopieren
+        for (int i = 0; i < m_length; ++i) {
+            newBuffer[i] = m_data[i];
+        }
+
+        // Rest des neuen Puffers auf 0 vorbelegen
+        for (int i = m_length; i < newLength; ++i) {
+            newBuffer[i] = 0;
+        }
+
+        // noch aktuelle, aber quasi alten Puffer freigeben
+        delete[] m_data;
+
+        // Zeiger auf Puffer umsetzen
+        m_data = newBuffer;
+
+        // Länge aktualisieren
+        m_length = newLength;
+    }
+
 
     void release()
     {
@@ -159,8 +273,125 @@ void test_dynamic_array_03()
     daCopy.print();
 }
 
+void test_dynamic_array_04()
+{
+    DynamicArray da(5);
+    da.initialize(123);
+    da.print();
+
+    da.resize(8);
+    da.print();
+}
+
+void test_dynamic_array_05()
+{
+    DynamicArray da(5);
+    da.initialize(123);
+    da.print();
+
+    da.setAt(1, 100);
+    da.print();
+
+    // Lesen
+    int value = da.getAt(2);
+
+    // Attraktiver ... Yes !!!
+    // Spielerei .. aber, aber
+    value = da.operator[](2);
+
+    // Ohne Spielerei:
+    value = da[2];
+
+    da.print();
+
+    // Es gibt KEINE Null-Referenz
+    // int& rvalue; //  = da[1];
+    int& rvalue = da[1];
+
+    rvalue = 999;
+
+    da.print();
+
+    // Jetzt wird es interessant:
+    da[0] = 456;
+
+    // Referenzen 
+}
+
+void test_dynamic_array_06()
+{
+    // Ausnahmebehandlung
+
+    DynamicArray da(5);
+    da.initialize(123);
+    da.print();
+
+    da[12] = 999;   // FALSCHER INDX
+
+    try
+    {
+        int value = da[10];
+        // oder
+        da[12] = 999;
+    }
+
+    catch (std::overflow_error ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    catch (std::out_of_range ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    catch (std::exception ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+
+
+    da.print();
+}
+
+//void test_dynamic_array_07()
+//{
+//    DynamicArray da(5);
+//    da.initialize(123);
+//    da.print();
+//
+//    da.setAt(1, 100);
+//    da.print();
+//
+//    // Lesen
+//    int value = da.getAt(2);
+//
+//    // Ohne Spielerei - LESEND
+//    int* pvalue = da[2];
+//    std::cout << *pvalue << std::endl;
+//
+//    // SCHREIBEND - Jetzt wird es interessant:
+//    *(da[0]) = 456;
+//    da.print();
+//
+//    // ABER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
+//    // LESEND
+//    pvalue = da[20];
+//    if (pvalue != nullptr) {
+//        std::cout << *pvalue << std::endl;
+//    }
+//
+//    // SCHREIBEND - Jetzt wird es interessant:
+//    //*(da[20]) = 456;
+//    //da.print();
+//
+//    pvalue = da[20];
+//    if (pvalue != nullptr) {
+//        *pvalue = 456;
+//    }
+//}
+
 void test_dynamic_array()
 {
-    test_dynamic_array_03();
+    test_dynamic_array_06();
     std::cout << "Done." << std::endl;
 }
