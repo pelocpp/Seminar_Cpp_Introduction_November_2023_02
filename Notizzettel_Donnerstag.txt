@@ -364,4 +364,8 @@ C++:  Schwachstellen
 
 Die Eigenschaften einer Schnittstelle werden vom Compiler (in C++) nicht überprüft.
 
-15:35
+==============================================================
+
+Aufgabe zu Bankkonten:
+======================
+
