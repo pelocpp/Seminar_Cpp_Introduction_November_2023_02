@@ -212,5 +212,156 @@ Methode mit demselben Namen (Schnittstelle) in der Vater- und Kind-Klasse:
 
 Verdecken:  SCHLECHT // Fragwürdig // Code Smell  // "es riecht"
 
-
 ====================================================
+
+    Rectangle* r;
+
+    ColoredRectangle cr(2, 2, 30, 60, 88);
+
+    r = & cr;  // is-a Beziehung
+
+    r->draw();  // A) r ist Pointer auf Rectangle:
+                //    ==> Aufruf von Rectangle::draw
+                // B) r zeigt auf ein Objekt des Types ColoredRectangle:
+                //    ==> Aufruf von ColoredRectangle::draw
+
+
+Virtuellen Methodenaufrufmechnismus:
+------------------------------------
+
+Wenn an einem Zeiger (Referenz) eine Methode aufgerufen wird:
+
+A) Es wird die Methode des TYPS des Zeigers aufgerufen.
+
+== Early-Binding
+
+== Frühes Binden
+
+== Compile-Time Binding
+
+
+B) Es wird die Methode des TYPS aufgerufen,
+   auf das der Zeiger zeigt.
+
+
+== Late-Binding
+
+== Spätes Binden
+
+== Runtime-Time Binding // Laufzeit entscheidet
+
+
+
+Performance:
+
+== Early-Binding:
+
+r->draw();  // A) r ist Pointer auf Rectangle:
+00007FF7BFAECDAF  mov         rcx,qword ptr [r]  
+00007FF7BFAECDB3  call        Rectangle::draw (07FF7BFAE1BE5h) 
+
+== Late-Binding:
+
+r->draw();  // A) r ist Pointer auf Rectangle:
+00007FF6B81CCDAF  mov         rax,qword ptr [r]  
+00007FF6B81CCDB3  mov         rax,qword ptr [rax]  
+00007FF6B81CCDB6  mov         rcx,qword ptr [r]  
+00007FF6B81CCDBA  call        qword ptr [rax]
+
+"Charme"-Offensive:
+-------------------
+
+  Viele:     Poly
+
+  Körper:    Morphus
+
+== Polymorphimus   ==> Vielgestaltigkeit
+
+== Habe verschiedene Objekte, die sich aber auf eine gemeinsame
+    Basisklasse stützen.
+
+Java:
+-----
+
+public void paint(Graphics g)
+
+Kein Virtual:   VORSICHT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+ALLE METHODEN sind virtual
+
+Abschalten: final
+
+
+Python:
+-------
+
+Python methods are always virtual.
+
+You can use the final decorator to declare that a:
+
+Method should not be overridden  // Early-Binding: Bessere Laufzeit.
+
+
+// ===============================================================
+
+=====>  Entwurf  / Design
+
+A) Unvollständige Klasse:  Abstrakte Klasse
+
+==> Hilfestellung
+
+
+== Hat Daten
+
+== Hat konkrete Methoden (mit Realisierung)
+
+== Hat Aufgabenstellungen für Kindklassen 
+
+   Kindklassen müssen diese Methoden REALISIEREN.
+
+   zB void drawBorder();
+
+   Abstrakte Methoden
+
+// ===============================================================
+
+
+=====>  Entwurf  / Design
+
+B) Einheitliches Aussehen einer Hierarchie von Klassen:
+
+Schnittstelle eine Klasse                            ("public Interface")
+
+Im Sinne von
+
+   == Beschreibung eines Teilaspekts  (eines Teils einer Klasse)
+
+   == zB das Zeichnen eines UI Elements
+
+Beispiel:
+========
+
+class IRectangle
+{
+public:
+    virtual void draw() = 0;
+    virtual void eraseBackground() = 0;
+    virtual void drawBorder() = 0;
+};
+
+Eigenschaften einer Schnittstelle:
+
+== Keine Daten
+
+== Keine Realisierungen von Methoden
+
+== NUR: Signaturen von Methoden (die sinnigerweise zusammen gehören)
+
+   "Single-Responsibility Principle"
+
+
+C++:  Schwachstellen
+
+Die Eigenschaften einer Schnittstelle werden vom Compiler (in C++) nicht überprüft.
+
+15:35
