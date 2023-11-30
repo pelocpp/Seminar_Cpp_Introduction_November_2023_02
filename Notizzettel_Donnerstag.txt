@@ -26,8 +26,6 @@ B) DynArray: Der Parameter des Konstruktors ist variabel
 
 
 
-== Abschlieﬂende Betrachtung der Klasse DynArray.
-
 == resize, at 
 
 == In Zusammenhang mit Exception-Handling

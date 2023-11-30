@@ -22,6 +22,9 @@
     <Filter Include="Exercise_Zeichenketten">
       <UniqueIdentifier>{dbe37159-4bcd-4545-b689-bea19404eb57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Exercise_Vererbung">
+      <UniqueIdentifier>{bf88cc33-006c-47ac-aea0-48ee15658a9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
@@ -71,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="Vererbung.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoreBankAccounts\MoreBankAccounts.cpp">
+      <Filter>Exercise_Vererbung</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

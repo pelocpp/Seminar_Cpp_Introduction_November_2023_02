@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Notizzettel.txt = Notizzettel.txt
 		Notizzettel_Dienstag.txt = Notizzettel_Dienstag.txt
 		Notizzettel_Donnerstag.txt = Notizzettel_Donnerstag.txt
+		Notizzettel_Freitag.txt = Notizzettel_Freitag.txt
 		Notizzettel_Mittwoch.txt = Notizzettel_Mittwoch.txt
 	EndProjectSection
 EndProject

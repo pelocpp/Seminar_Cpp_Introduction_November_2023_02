@@ -49,7 +49,7 @@ int main()
 {
     try
     {
-        test_inheritance();
+        exerciseMoreBankAccounts();
     }
     catch (std::overflow_error ex)
     {

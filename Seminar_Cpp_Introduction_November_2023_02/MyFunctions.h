@@ -16,3 +16,4 @@ extern void test_inheritance();
 // Aufgaben
 extern void exerciseBankAccount();
 extern void exerciseStrings();
+extern void exerciseMoreBankAccounts();

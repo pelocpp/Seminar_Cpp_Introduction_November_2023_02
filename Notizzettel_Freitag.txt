@@ -1,0 +1,10 @@
+C++ Einführung
+
+Peter Loos
+
+Freitag
+
+=================================================================
+
+== Abschließende Betrachtung der Klasse DynArray (Templates)
+
