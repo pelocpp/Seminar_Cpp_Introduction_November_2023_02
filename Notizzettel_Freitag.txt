@@ -29,3 +29,34 @@ Kindklasse
 ==> ist-ein Beziehung
 
 ================================================================
+
+C++ und sein Entwurf:
+
+== Bjarne Stroustrup
+
+   == C++ with Classes (OO)
+
+
+GP: Generische Programmierung (Schablonen)
+
+   == Alexander Stepanov
+
+   == C++: Bibliotek für C++ 
+
+   
+================================================================
+
+Abriss:
+
+https://github.com/pelocpp/cpp_modern_examples/blob/master/GeneralSnippets/TemplateClassBasics/TemplatesClassBasics.md
+
+Problem Templates UND Vererbung:
+
+https://github.com/pelocpp/cpp_modern_examples/blob/master/GeneralSnippets/TemplateTwoPhaseLookup/TemplateTwoPhaseLookup.md
+
+Fazit // Moral:
+
+
+Schablonen im ersten Schritt ohne Vererbung beginnen :)
+
+11.30  weiter ,,,,,,

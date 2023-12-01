@@ -10,13 +10,114 @@ namespace MoreBankAccounts {
     struct IAccount
     {
         // getter/setter
-        virtual double getAccountNumber() = 0;
+        virtual int getAccountNumber() = 0;
         virtual double getBalance() = 0;
 
         // public interface
         virtual void deposit(double amount) = 0;
         virtual bool withdraw(double amount) = 0;
         virtual void print() = 0;
+    };
+
+    template <typename T>
+    struct IGenericAccount
+    {
+        // getter/setter
+        virtual int getAccountNumber() = 0;
+        virtual T getBalance() = 0;
+
+        // public interface
+        virtual void deposit(T amount) = 0;
+        virtual bool withdraw(T amount) = 0;
+        virtual void print() = 0;
+    };
+
+    // ===========================================================================
+
+    template <typename T>
+    class AccountGeneric : public IGenericAccount<T>
+    {
+    protected:
+        int   m_number;
+        T     m_balance;
+
+    private:
+        static int s_nextNumberGeneric;
+
+    public:
+        // default c'tor
+        AccountGeneric() : m_balance(0) {
+
+            // retrieve next available account number
+            m_number = s_nextNumberGeneric;
+            s_nextNumberGeneric++;
+        }
+
+        // getter / setter
+        int getAccountNumber() final override {
+            return m_number;
+        }
+
+        T getBalance() final override {
+            return m_balance;
+        }
+
+        // public interface
+        void deposit(T amount) final override {
+            m_balance += amount;
+        }
+
+        void print() override {
+            std::cout << "    [Nr. " << m_number << "]:" << std::endl;
+            std::cout << "    Balance = " << m_balance << ";" << std::endl;
+        }
+    };
+
+    // initialization of static member variable
+    int AccountGeneric<int>::s_nextNumberGeneric = 10'000;
+
+    // WIE GEHT DAS BESSER ??????????????????  
+
+    // ===========================================================================
+
+    template <typename T>
+    class CurrentAccountGeneric : public AccountGeneric<T>
+    {
+        using AccountGeneric<T>::m_balance;  // Two Phase Lookup
+
+    private:
+        T m_limit;
+
+    public:
+        // c'tors
+        CurrentAccountGeneric() : CurrentAccountGeneric( (T) 1000.0) {}
+
+        CurrentAccountGeneric(T limit) : AccountGeneric<T>(), m_limit( (T) 1000.0) {}
+
+        // getter / setter
+        T getLimit() {
+            return m_limit;
+        }
+
+        void setLimit(T limit) {
+            m_limit = limit;
+        }
+
+        // public interface
+        bool withdraw(T amount) override {
+
+            if (m_balance + m_limit < amount)
+                return false;
+
+            m_balance -= amount;
+            return true;
+        }
+
+        void print() override {
+            std::cout << "CurrentAccount:" << std::endl;
+            AccountGeneric<T>::print();
+            std::cout << "    Limit = " << m_limit << ";" << std::endl;
+        }
     };
 
     // ===========================================================================
@@ -41,7 +142,7 @@ namespace MoreBankAccounts {
         }
 
         // getter / setter
-        double getAccountNumber() final override {
+        int getAccountNumber() final override {
             return m_number;
         }
 
@@ -225,10 +326,29 @@ void exerciseMoreBankAccounts_02()
     std::cout << "Total Balance: " << totalBalance << std::endl;
 }
 
+void exerciseMoreBankAccounts_03_Generic()
+{
+    using namespace MoreBankAccounts;
+
+    CurrentAccountGeneric<float> ca(1000);
+
+    ca.deposit(100);
+    ca.withdraw(40);
+    ca.print();
+
+}
+
+//
+//template <typename T>
+//class CurrentAccountGeneric : public AccountGeneric<T>
+
+
 void exerciseMoreBankAccounts()
 {
-    exerciseMoreBankAccounts_01();
-    exerciseMoreBankAccounts_02();
+    //exerciseMoreBankAccounts_01();
+    //exerciseMoreBankAccounts_02();
+
+    exerciseMoreBankAccounts_03_Generic();
 }
 
 // ===========================================================================

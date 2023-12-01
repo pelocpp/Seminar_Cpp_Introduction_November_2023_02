@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BankAccount\BankAccount.h" />
+    <ClInclude Include="DynamicArrayTemplate.h" />
     <ClInclude Include="MyFunctions.h" />
     <ClInclude Include="Rectangle\Point.h" />
     <ClInclude Include="Rectangle\Rectangle.h" />

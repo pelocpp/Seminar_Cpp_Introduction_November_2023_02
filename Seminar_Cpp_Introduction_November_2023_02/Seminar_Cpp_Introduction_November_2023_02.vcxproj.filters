@@ -101,6 +101,9 @@
     <ClInclude Include="BankAccount\BankAccount.h">
       <Filter>Exercise_BankAccount</Filter>
     </ClInclude>
+    <ClInclude Include="DynamicArrayTemplate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Books\Cpp_PeterLoos.PDF">
