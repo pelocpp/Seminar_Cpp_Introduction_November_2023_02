@@ -25,6 +25,9 @@
     <Filter Include="Exercise_Vererbung">
       <UniqueIdentifier>{bf88cc33-006c-47ac-aea0-48ee15658a9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Books">
+      <UniqueIdentifier>{2e28cfb8-3d6f-4bb0-91ac-9f26b73683f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
@@ -78,6 +81,9 @@
     <ClCompile Include="MoreBankAccounts\MoreBankAccounts.cpp">
       <Filter>Exercise_Vererbung</Filter>
     </ClCompile>
+    <ClCompile Include="Schablonen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -95,5 +101,13 @@
     <ClInclude Include="BankAccount\BankAccount.h">
       <Filter>Exercise_BankAccount</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Books\Cpp_PeterLoos.PDF">
+      <Filter>Books</Filter>
+    </None>
+    <None Include="Books\Jesse Liberty_C++_in_21_Tagen.pdf">
+      <Filter>Books</Filter>
+    </None>
   </ItemGroup>
 </Project>

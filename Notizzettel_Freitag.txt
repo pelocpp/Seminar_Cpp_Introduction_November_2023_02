@@ -6,5 +6,26 @@ Freitag
 
 =================================================================
 
+== Musterlösung
+
+== Templates
+
 == Abschließende Betrachtung der Klasse DynArray (Templates)
 
+== STL: Parcours
+
+== 16 Uhr
+
+================================================================
+
+Vererbung:
+
+Kindklasse
+
+==> Man *spezialisiert* eine Vaterklasse, Basisklasse.
+
+==> Basisklasse sind *Verallgemeinerungen* ihrer Kindklassen (Generalisierung)
+
+==> ist-ein Beziehung
+
+================================================================

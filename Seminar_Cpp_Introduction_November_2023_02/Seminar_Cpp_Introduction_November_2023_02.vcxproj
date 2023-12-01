@@ -140,6 +140,7 @@
     <ClCompile Include="Rectangle\Rectangle.cpp" />
     <ClCompile Include="Rectangle\Rectangle_Main.cpp" />
     <ClCompile Include="Referenzen_vs_Zeiger.cpp" />
+    <ClCompile Include="Schablonen.cpp" />
     <ClCompile Include="Statisches.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Vererbung.cpp" />
@@ -151,6 +152,10 @@
     <ClInclude Include="Rectangle\Point.h" />
     <ClInclude Include="Rectangle\Rectangle.h" />
     <ClInclude Include="Time.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Books\Cpp_PeterLoos.PDF" />
+    <None Include="Books\Jesse Liberty_C++_in_21_Tagen.pdf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,9 +7,8 @@
 namespace MoreBankAccounts {
 
     // Interface 'IAccount'
-    class IAccount
+    struct IAccount
     {
-    public:
         // getter/setter
         virtual double getAccountNumber() = 0;
         virtual double getBalance() = 0;
@@ -46,7 +45,7 @@ namespace MoreBankAccounts {
             return m_number;
         }
 
-        double getBalance() final override { 
+        double getBalance() final override {
             return m_balance; 
         }
 
@@ -75,6 +74,7 @@ namespace MoreBankAccounts {
     public:
         // c'tors
         CurrentAccount() : CurrentAccount(1000.0) {}
+        
         CurrentAccount(double limit) : Account(), m_limit(1000.0) {}
 
         // getter / setter
@@ -114,6 +114,7 @@ namespace MoreBankAccounts {
     public:
         // c'tor
         DepositAccount() : DepositAccount(3.0) {}
+
         DepositAccount(double rate) : Account(), m_rate(rate) {}
 
         // public interface
@@ -163,6 +164,13 @@ namespace MoreBankAccounts {
         void print() override {
             std::cout << "StudentsAccount:" << std::endl;
             Account::print();
+            
+            // Hmmmm.. die geerbte setLimit bereitet Probleme ...
+            // this->setLimit
+
+            // Besserer Ansatz: Ein CurrentAccount mit Dispo leitet sich von StudentsAccount ab ...
+
+            // Fazit: Peter Loos: Ich würde es doch bei DREI Klassen belassen :)
         };
     };
 }
