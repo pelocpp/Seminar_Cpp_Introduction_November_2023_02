@@ -2,6 +2,12 @@ C++ Einführung
 
 Peter Loos
 
+peter.loos@gmx.de
+
+https://peterloos.de/
+
+https://github.com/pelocpp
+
 "Du"
 
 C/C++, Java,  C#,  JavaScipt, Mobile Programming (Android, Java), Back-to-the-Roots

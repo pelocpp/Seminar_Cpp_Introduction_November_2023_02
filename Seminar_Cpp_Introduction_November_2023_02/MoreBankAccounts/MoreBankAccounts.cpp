@@ -74,7 +74,7 @@ namespace MoreBankAccounts {
     };
 
     // initialization of static member variable
-    int AccountGeneric<int>::s_nextNumberGeneric = 10'000;
+    int AccountGeneric<float>::s_nextNumberGeneric = 10'000;
 
     // WIE GEHT DAS BESSER ??????????????????  
 

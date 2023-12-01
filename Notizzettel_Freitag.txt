@@ -59,4 +59,232 @@ Fazit // Moral:
 
 Schablonen im ersten Schritt ohne Vererbung beginnen :)
 
-11.30  weiter ,,,,,,
+==============================================================
+
+STL: Bibliothek
+
+== Container
+
+== Iterator
+
+== Algorithmus
+
+== Aufrufbares Objekt // Callable // Functor
+
+==============================================================
+
+Container:
+==========
+
+
+Die eine Menge von Daten aufnehmen / verwalten kann:
+
+== C++: Array (Fixed-Size)
+
+==  (( Dynamic Array ))
+
+== std::vector
+
+== 
+
+---------------
+
+Beispiel:
+
+Suchen nach einer Tel.Nummer in einem Feld von Objekten:
+
+Pro Eintrag: Name ("Meier"), Tel.Nummer.
+
+999. Stelle
+
+Performance  // Such-Strategie
+
+Algorithmen & Datenstrukturen.
+
+
+Suchbaum:
+
+https://www.google.com/search?sca_esv=586929607&rlz=1C1CHBD_enDE879DE879&sxsrf=AM9HkKkrwnK9g_eEcYX-_SZ4eUr67TJUGg:1701427011131&q=c%2B%2B+tree+structure&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjV7O_Ehe6CAxU_gP0HHcZEDq8Q0pQJegQICxAB&biw=1920&bih=931&dpr=2#imgrc=bCdgtXzvQdQwqM&imgdii=OR5TWKnWF3nV6M
+
+Strategie:
+
+Namen von "A..." bis "Z...":
+
+Initial: wie "Meier" als erstes (Wurzel) eingetragen werden.
+
+std::unordered_map
+
+==================================
+
+Beispiel: Hash Tabelle
+
+Ist eigentlich ein Array :)
+
+Aber: Es wird nicht von Anfang an durchlaufen ...
+
+Der Index wird berechnet - an Hand des Namens: "Meier"
+
+Hash Funktion: Diese bildet einen Namen auf einen Index ab !!!
+
+In C++:  std::map
+
+==================================
+
+Frage 1: Elemente in einem Container ansprechen // lokalisieren:
+
+Frage 2: Kann man das "allgemein" für alle möglichen STL Container halten. 
+
+Verallgemeinerung:
+
+Iterator:
+---------
+
+Was ist ein Iterator:  Beschreibt eine POSITION in einem Container !!!
+
+Wie: Das ist sein Geheimnis   (( C++-Klasse, Realisierung, Pro Container eine separate Realisierung ))
+
+Weitere Frage:
+
+Welche Methoden (Operatoren) hat so ein Iterator:  Dokumentiert (gelten für ALLE Iteratoren):
+
+operator*:                Wert des Containers an der Stelle des Iterators.
+
+operator ++:              Gehe zur nächsten Position
+
+operator ==, !=:          Vergleich zweier Iteratoren
+
+((
+
+  operator[] (int index): Wert des Containers in der Stelle 'index':
+
+                          Das wird nur von einigen Sequence-Containern unterstützt.
+
+))
+
+
+Wie erhält man einen Iterator:
+
+Vom Container:  Wie ...
+
+a) Methode 'begin'
+
+b) Methode 'end'
+
+
+=====================================================
+
+Aufrufbares Objekt // Callable // Functor
+
+
+operator[]    
+
+operator ==
+
+operator +
+
+
+Pro Operator auch eine festgelegte Anzahl der Operanden:
+
+Binärer Operator: 2 Operanden
+
+Unär: 1 Operand  []   //   dynArray[1] = 123;
+
+Ternär: 3 Operanden: x = (a < b) ? 1 : 2;   // ?:  Operator
+
+
+x = 1 + 2;
+
+// +3,  -17   // Lexikon: Konstante
+
+Weiterer Operator:
+
+Function Call Operator ()
+
+Man kann diesen Operator überladen:
+
+Was bewirkt das:
+
+BankAccount ba;
+
+DynArray da;
+
+Syntax:     ba(1, 2, 3);
+
+Was bringt das ???
+
+Man kann an Objekten eine Funktion (ohne Namen)  // operator() aufrufen.
+
+Man spricht dann von so genannten "aufrufbaren Objekten"
+
+Callable Object
+
+=====================================================
+
+STL-Algorithmus:
+
+
+std::for_each
+
+a) globalen C-Funktion
+
+b) We can do better:   "Aufrufbares Objekt"  ===> Objekt-Orientiert 
+
+Frage:
+
+    for (int i = 0; i < numbers.size(); ++i) {
+
+        numbers[i] = 1;
+    }
+
+    versus
+
+    std::fill(
+        numbers.begin(),
+        numbers.end(),
+        2
+    );
+
+std::fill benutzt memset, wenn möglich.
+
+memcmp
+memcpy
+memmove
+memset
+
+================================================
+
+
+Strategie des Vektors bzgl. resize:
+
+28 * 1.5 = 42
+42 * 1.5 = 63
+63 * 1.5 = 64
+94 * 1.5 = 141
+
+Hiweis:  Performance
+
+================================================
+
+
+Ausblick:
+
+Aufrufbare Objekte:
+
+We can do it another way :)
+
+== Suchen
+
+=================================================
+
+Frage:
+
+T als Template Paramter einschänken:
+
+== requires
+== concept
+
+// SFINAE  : erheblich komplizierter und auf Grund von concept/requires (C++ 20) veraltet.
+
+https://github.com/pelocpp/cpp_modern_examples/blob/master/GeneralSnippets/ConceptsRequiresFunctions/ConceptsRequiresFunctions.md
+
+=================================================

@@ -49,7 +49,8 @@ int main()
 {
     try
     {
-        exerciseMoreBankAccounts();
+        test_stl();
+        //test_references();
     }
     catch (std::overflow_error ex)
     {
